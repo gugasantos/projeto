@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION["usuario"] && empty($_SESSION["usuario"] == false)){
+    header("Location: pagina.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +14,17 @@
     <title>projetinteste</title>
 </head>
 <body>
-    <form method = "POST" action="entrar.php"></form>
+    <h1>Login</h1>
+    <form method = "POST" action="login_action.php">
     <label>Usuário: 
-    <input type="text" name = "u">
+    <input type="text" name = "usuario"><br>
     </label>
+    <label >Senha 
+    <input type="password" name = "senha" ><br>
+    </label>
+    <input type="submit" value="Entrar">
+    <a href="adicionar.php">Cadastrar</a>
+    </form>
     <?php
         
     
